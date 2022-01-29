@@ -26,5 +26,5 @@ func ConnectToMongo() {
 
 	client.Connect(ctx)
 
-	DB = *client.Database("shopping")
+	DB = *client.Database(DB_NAME)
 }

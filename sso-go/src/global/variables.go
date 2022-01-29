@@ -10,6 +10,7 @@ import (
 
 var Debugger_Val bool
 var DB_URL string
+var DB_NAME string
 var PRVKEY_LOC string
 var PUBKEY_LOC string
 var AccessTokenTime int
@@ -44,6 +45,7 @@ func settingVariable() {
 	AccessTokenTime = access_token_time
 	RefreshTokenTime = refresh_token_time
 	DB_URL = os.Getenv("MongoDB_URL")
+	DB_NAME = os.Getenv("MongoDB_NAME")
 
 	Cookie_Secure, OK := os.LookupEnv("Cookie_Secure")
 	if !OK {

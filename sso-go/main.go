@@ -4,16 +4,18 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 
+	"github.com/amitdotkr/sso/sso-go/src/global"
 	"github.com/amitdotkr/sso/sso-go/src/routes"
 )
 
 func main() {
 	app := fiber.New()
 
-	// if global.Debugger_Val {
-	// 	app.Use(logger.New())
-	// }
+	if global.Debugger_Val {
+		app.Use(logger.New())
+	}
 	app.Use(cors.New())
 	// app.Use(favicon.New(favicon.Config{
 	// 	File: "./favicon.ico",
