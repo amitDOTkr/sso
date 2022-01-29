@@ -1,0 +1,22 @@
+.container {
+    height: 100%;
+    width: 100%;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    padding: auto;
+}
+.container-card{
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
+}
+
+.example-form {
+    min-width: 100px;
+    max-width: 500px;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
