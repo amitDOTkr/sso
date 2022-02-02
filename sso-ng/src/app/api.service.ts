@@ -9,17 +9,22 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
 
-  url = 'api/seller/signin'
+  signinUrl = 'api/user/signin'
+  // signoutUrl = 'api/user/signout'
 
   constructor(private http:HttpClient, private router: Router) { }
 
   signin(loginData: {email: string; password: string;}) {
     // var res : SellerLoginResponse;
-    return this.http.post<any>(this.url, loginData).pipe(map(
+    return this.http.post<any>(this.signinUrl, loginData).pipe(map(
       data => {
         return data
         // return res
       }
     ))
   }
+
+  // signout() {
+  //   return this.http.get<any>(this.signoutUrl)
+  // }
 }

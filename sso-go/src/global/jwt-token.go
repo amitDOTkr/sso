@@ -55,7 +55,7 @@ func ParsingToken(token string) (*jwt.Token, error) {
 }
 
 // Regenerate Refresh Token Using Refresh Token
-
+// Required
 func RegenerateRefreshToken(c *fiber.Ctx, userid, role, keyId string) error {
 
 	kid, err := primitive.ObjectIDFromHex(keyId)
@@ -106,7 +106,7 @@ func RegenerateRefreshToken(c *fiber.Ctx, userid, role, keyId string) error {
 }
 
 // Saving Refresh Token in Database
-
+// Required
 func RefreshTokenInDatabase(userid string, tokenExpire int64, kid primitive.ObjectID, rt string) error {
 	uid, err := primitive.ObjectIDFromHex(userid)
 	if err != nil {
@@ -130,6 +130,7 @@ func RefreshTokenInDatabase(userid string, tokenExpire int64, kid primitive.Obje
 	return nil
 }
 
+// Required
 func CreateAccessTokenGo(c *fiber.Ctx, userid string, role string) error {
 
 	prvKey, err := ioutil.ReadFile(PRVKEY_LOC)
@@ -170,6 +171,7 @@ func CreateAccessTokenGo(c *fiber.Ctx, userid string, role string) error {
 	return nil
 }
 
+// Required
 func CreateRefreshTokenGo(c *fiber.Ctx, userid string, role string) error {
 
 	kid := primitive.NewObjectID()
@@ -279,6 +281,7 @@ func CreateTokenPairUsingRefreshToken(c *fiber.Ctx, userid, role, keyId string) 
 	return nil
 }
 
+// Required
 func ValidatingUser(c *fiber.Ctx) (string, error) {
 	var userId string
 

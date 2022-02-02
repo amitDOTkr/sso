@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from './api.service';
 
 @Component({
@@ -10,9 +10,12 @@ import { ApiService } from './api.service';
 export class AppComponent implements OnInit{
   title = 'sso';
 
-  loginForm!: FormGroup;
+  loginForm = this.fb.group({
+    email: ['', Validators.email],
+    password: ['', Validators.required]
+  });
   
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private fb: FormBuilder) {}
 
   onSubmit(): void{
     if (this.loginForm.valid){

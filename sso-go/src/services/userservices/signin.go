@@ -8,11 +8,11 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func RegenerateToken(c *fiber.Ctx) error {
-	global.RegenerateTokenUsingRefreshToken(c)
+// func RegenerateToken(c *fiber.Ctx) error {
+// 	global.RegenerateTokenUsingRefreshToken(c)
 
-	return c.SendStatus(fiber.StatusOK)
-}
+// 	return c.SendStatus(fiber.StatusOK)
+// }
 
 func Signin(c *fiber.Ctx) error {
 
@@ -51,7 +51,7 @@ func Signin(c *fiber.Ctx) error {
 		})
 	}
 
-	if err := CreateTokenPairGo(c, data.ID.Hex(), "seller"); err != nil {
+	if err := CreateTokenPairGo(c, data.ID.Hex(), "user"); err != nil {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"error": entities.Error{
 				Type:   "Token Generation Error",

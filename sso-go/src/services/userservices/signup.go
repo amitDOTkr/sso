@@ -66,7 +66,7 @@ func Signup(c *fiber.Ctx) error {
 
 	oid, _ := sellerRes.InsertedID.(primitive.ObjectID)
 
-	if err := CreateTokenPairGo(c, oid.Hex(), "seller"); err != nil {
+	if err := CreateTokenPairGo(c, oid.Hex(), "user"); err != nil {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"error": entities.Error{
 				Type:   "Token Generation Error",
@@ -84,7 +84,6 @@ func Signup(c *fiber.Ctx) error {
 			IsActice:        user.IsActice,
 		},
 	})
-
 }
 
 func IsEmailAlreadyExist(email string) (bool, error) {

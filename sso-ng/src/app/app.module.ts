@@ -27,7 +27,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
